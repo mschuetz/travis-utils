@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-REPO=$(git config remote.origin.url | ruby -ne 'puts $_.gsub(/git@github.com:/, "https://github.com/")')
+REPO=$(git config remote.origin.url | sed -e 's/git:/https:/')
 git remote set-url --push origin $REPO
 git remote set-branches --add origin gh-pages
 git fetch -q
