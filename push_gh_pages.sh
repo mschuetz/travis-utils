@@ -11,7 +11,7 @@ echo "https://$GH_TOKEN:@github.com" > .git/credentials
 git checkout gh-pages
 
 FILES=$(find target/site | sed -e 's/target\/site\///' | grep -v target)
-mv -f target/site/* .
+cp -prf target/site/* .
 
 git add $FILES
 git commit -m "maven site of travis build. test $TRAVIS_BUILD_NUMBER ($TRAVIS_COMMIT)"
