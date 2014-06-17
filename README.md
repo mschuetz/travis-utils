@@ -14,12 +14,13 @@ travis encrypt '\
   --add
 ```
 
-Finally, add a script step to your ```.travis.yml``` like in the following example. Alternatively you might copy the shell script to your repository or pull it in using ```git submodule```.
+Finally, add a script step and environment variable to your ```.travis.yml``` like in the following example. Alternatively you might copy the shell script to your repository or pull it in using ```git submodule```.
+
 ```
 script:
 - mvn site
-- curl -s 'https://raw.githubusercontent.com/mschuetz/travis-utils/master/push_gh_pages.sh'
-  | bash -eu
+- curl -s 'https://raw.githubusercontent.com/mschuetz/travis-utils/master/push_gh_pages.sh' | bash -eu
+env:
+  global:
+  - REPORT_DIR=target/site
 ```
-
-Caveats: Currently, the directory ```target/site``` is hard coded (see [#1](#1)).
