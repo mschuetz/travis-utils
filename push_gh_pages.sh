@@ -1,5 +1,6 @@
 #!/bin/bash -eu
 
+git branch gh-pages || true
 REPO=$(git config remote.origin.url | sed -e 's/git:/https:/')
 git remote set-url --push origin $REPO
 git remote set-branches --add origin gh-pages
