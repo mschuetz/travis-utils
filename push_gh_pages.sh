@@ -11,7 +11,7 @@ git config credential.helper "store --file=.git/credentials"
 echo "https://$GH_TOKEN:@github.com" > .git/credentials
 git checkout gh-pages
 
-FILES=$(find $REPORT_DIR/* | sed -e "s|$REPORT_DIR||")
+FILES=$(find $REPORT_DIR/* | sed -e "s|$REPORT_DIR/||")
 cp -prf $REPORT_DIR/* .
 
 git add $FILES
